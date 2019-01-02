@@ -67,7 +67,7 @@ def get_average(amount,optimizer, num_splits=1):
         model = train_model(train_data, train_labels, amount)
         
         # Gets accuracy of model trained with training data against test data
-        # result is an array with loss as first element and accuracy as 2nd element
+        # Result is an array with loss as first element and accuracy as 2nd element
         result.append(model.evaluate(test_data, test_labels))
     return np.mean(np.array(result), axis=0)
 
@@ -78,6 +78,7 @@ def run_tests(optimizer):
         averages.append(get_average(i,optimizer))
     for i in range(len(averages)):
         print("Average of %i" % amounts[i])
+        # Prints [accuracy, loss]
         print(averages[i][::-1])
         print("----------------")
     pass
